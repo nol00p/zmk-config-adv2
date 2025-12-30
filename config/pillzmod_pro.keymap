@@ -44,7 +44,7 @@
         };
         
         // homerow mods
-        hm: homerow_mods {
+        hrm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
             #binding-cells = <2>;

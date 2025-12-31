@@ -24,6 +24,16 @@
 /********************/
 #include "zmk-helpers/helper.h"
 
+// Define leader behavior first
+/ {
+    behaviors {
+        leader: leader {
+            compatible = "zmk,behavior-leader-key";
+            #binding-cells = <0>;
+        };
+    };
+};
+
 /********************/
 /*      Layers      */
 /********************/

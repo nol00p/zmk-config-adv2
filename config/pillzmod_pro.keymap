@@ -18,19 +18,22 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 
+/********************/
+/*     includes     */
+/********************/
 
-// initial example -- to migrate
-#define LAYER_KEYPAD 1
-#define LAYER_SYSTEM 2
-
-// target - to edit -- Linux default
+/********************/
+/*      Layers      */
+/********************/
 #define DEFAULT 0
 #define LOWER   1
 #define RAISE   2
 #define MEDIA   3
 #define SYSTEM  4
 
-
+/********************/
+/* custom behaviors */
+/********************/
 / {
     behaviors {
         mo_key: behavior_mo_key {
@@ -44,7 +47,7 @@
         };
         
         // homerow mods
-        hrm: homerow_mods {
+        hr  m: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
             #binding-cells = <2>;
@@ -56,12 +59,16 @@
         };
     };
 
+/********************/
+/*  custom Keymaps  */
+/********************/
+
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             // -----------------------------------------------------------------------------------------
-            // |  HOME |  F1  |  F2  |  F3  |  F4  |  F5  |                |F6    |  F7  |  F8  |  F9  |  F10 |  F11 |  F12 | PSCRN| SLCK | PAUSE| Layer| SYS  |
+            // |  HOME | F1 | F2 | F3 | F4 | F5 | F6 | F7 | F8 |      | F9 | F10 | F11 | F12 | PSCRN| SLCK | PAUSE| Layer| SYS  |
             // |   =   |  1   |  2   |  3   |  4   |  5   |                |  6   |  7   |  8   |  9   |  0   |  -   |
             // |  TAB  |  Q   |  W   |  E   |  R   |  T   |                |  Y   |  U   |  I   |  O   |  P   |  \   |
             // | CAPS  |  A   |  S   |  D   |  F   |  G   |                |  H   |  J   |  K   |  L   |  ;   |  '   |
@@ -71,7 +78,7 @@
             //                                            | HOME |  | PGUP |
             //                              | BSPC | DEL  | END  |  | PGDN | ENT  | SPC  |
             bindings = <
-    &kp HOME   &kp F1       &kp F2      &kp F3        &kp F4            &kp F5                                 &kp F6    &kp F7         &kp F8          &kp F9      &kp F10         &kp F11     &kp F12 &kp PSCRN  &kp SLCK  &kp PAUSE_BREAK  &tog LAYER_KEYPAD  &mo SYSTEM
+    &kp HOME   &kp F1   &kp F2  &kp F3  &kp F4  &kp F5  &kp F6  &kp F7  &kp F8                                 &kp F9   &kp F10 &kp F11 &kp F12 &kp PSCRN   &kp SLCK    &kp PAUSE_BREAK &tog LAYER_KEYPAD   &mo SYSTEM
     &kp EQUAL  &kp N1       &kp N2      &kp N3        &kp N4            &kp N5                                 &kp N6    &kp N7         &kp N8          &kp N9      &kp N0          &kp MINUS
     &kp TAB    &kp Q        &kp W       &kp E         &kp R             &kp T                                  &kp Y     &kp U          &kp I           &kp O       &kp P           &kp BSLH
     &kp CAPS   &hrm LGUI A  &hrm LALT S &hrm LCTRL D  &hrm LEFT_SHIFT F &kp G                                  &kp H     &hrm LSHFT J   &hrm LCTRL K    &hrm LALT L &hrm LGUI SEMI  &kp SQT
@@ -85,8 +92,6 @@
         };
         
         lower_layer {
-            // -----------------------------------------------------------------------------------------
-            // Lower layer
             bindings = <
     &trans  &trans      &trans      &trans      &trans      &trans                              &trans      &trans      &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
     &trans  &trans      &trans      &trans      &trans      &trans                              &trans      &trans      &trans  &trans      &trans  &trans
@@ -102,8 +107,6 @@
         };
 
         raise_layer {
-            // -----------------------------------------------------------------------------------------
-            // Raise layer
             bindings = <
     &trans  &trans  &trans  &trans  &trans  &trans                              &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
     &trans  &trans  &trans  &trans  &trans  &trans                              &trans  &trans  &trans  &trans  &trans  &trans
@@ -154,3 +157,7 @@
 
     };
 };
+
+/****************************/
+/*  Tri State Layer Switch  */
+/****************************/
